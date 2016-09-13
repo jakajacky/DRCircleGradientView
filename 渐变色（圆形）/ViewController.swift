@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     let cricle = DRCricleGradientView(frame: CGRectMake((self.view.bounds.width - 100) / 2.0, (self.view.bounds.height - 100) / 2.0, 100, 100))
+    cricle.width = 2
     self.view.addSubview(cricle)
     
   }

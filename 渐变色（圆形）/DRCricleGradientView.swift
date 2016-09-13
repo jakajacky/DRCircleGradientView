@@ -10,12 +10,20 @@ import UIKit
 
 class DRCricleGradientView: UIView {
   
-  var backgroundLayer:CAShapeLayer!
-  var gradientLayer1:CAGradientLayer!
-  var gradientLayer2:CAGradientLayer!
-  var colors:NSMutableArray!
+  private var backgroundLayer:CAShapeLayer!
+  private var gradientLayer1:CAGradientLayer!
+  private var gradientLayer2:CAGradientLayer!
+  private var colors:NSMutableArray!
+  
+  // 圆环宽度
+  var width:CGFloat {
+    didSet {
+      backgroundLayer.lineWidth = width
+    }
+  }
   
   override init(frame: CGRect) {
+    width = 5
     super.init(frame: frame)
     
     backgroundLayer = CAShapeLayer()
@@ -53,18 +61,18 @@ class DRCricleGradientView: UIView {
     backgroundLayer.path = circlePath.CGPath;
     backgroundLayer.strokeColor = UIColor.lightGrayColor().CGColor
     backgroundLayer.fillColor = UIColor.clearColor().CGColor
-    backgroundLayer.lineWidth = 5
+    backgroundLayer.lineWidth = width
     
     // 方形光谱
     let gradientLayer = CALayer()
-    gradientLayer1.frame = CGRectMake(0, CGRectGetMidY(self.bounds) - radius - 5, self.bounds.width/2, 200);
+    gradientLayer1.frame = CGRectMake(0, CGRectGetMidY(self.bounds) - radius - 5, self.bounds.width/2, self.bounds.width);
     gradientLayer1.colors = colors as [AnyObject]
     //gradientLayer1.locations = [0.5,0.9,1]
     gradientLayer1.startPoint = CGPointMake(0.5, 1.0)
     gradientLayer1.endPoint = CGPointMake(0.5, 0.0)
     gradientLayer.addSublayer(gradientLayer1)
     //gradientLayer2.locations = [0.1,0.5,1]
-    gradientLayer2.frame = CGRectMake(self.bounds.width/2, CGRectGetMidY(self.bounds) - radius - 5, self.bounds.width/2, 200);
+    gradientLayer2.frame = CGRectMake(self.bounds.width/2, CGRectGetMidY(self.bounds) - radius - 5, self.bounds.width/2, self.bounds.width);
     gradientLayer2.colors = colors as [AnyObject]
     gradientLayer2.startPoint = CGPointMake(0.5, 0.0)
     gradientLayer2.endPoint = CGPointMake(0.5, 1.0)
