@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    let cricle = DRCricleGradientView(frame: CGRectMake((self.view.bounds.width - 100) / 2.0, (self.view.bounds.height - 100) / 2.0, 100, 100))
+    self.view.addSubview(cricle)
+    
   }
 
   override func didReceiveMemoryWarning() {

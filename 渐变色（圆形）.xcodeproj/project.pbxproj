@@ -12,6 +12,7 @@
 		F28A77791D8795E000C2D974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28A77771D8795E000C2D974 /* Main.storyboard */; };
 		F28A777B1D8795E000C2D974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28A777A1D8795E000C2D974 /* Assets.xcassets */; };
 		F28A777E1D8795E000C2D974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28A777C1D8795E000C2D974 /* LaunchScreen.storyboard */; };
+		F28A77861D87962B00C2D974 /* DRCricleGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28A77851D87962B00C2D974 /* DRCricleGradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F28A777A1D8795E000C2D974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F28A777D1D8795E000C2D974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F28A777F1D8795E000C2D974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F28A77851D87962B00C2D974 /* DRCricleGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRCricleGradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				F28A77731D8795E000C2D974 /* AppDelegate.swift */,
 				F28A77751D8795E000C2D974 /* ViewController.swift */,
+				F28A77851D87962B00C2D974 /* DRCricleGradientView.swift */,
 				F28A77771D8795E000C2D974 /* Main.storyboard */,
 				F28A777A1D8795E000C2D974 /* Assets.xcassets */,
 				F28A777C1D8795E000C2D974 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				F28A77761D8795E000C2D974 /* ViewController.swift in Sources */,
 				F28A77741D8795E000C2D974 /* AppDelegate.swift in Sources */,
+				F28A77861D87962B00C2D974 /* DRCricleGradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
