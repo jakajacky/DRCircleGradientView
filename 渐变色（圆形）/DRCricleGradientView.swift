@@ -8,12 +8,12 @@
 
 import UIKit
 
-class DRCricleGradientView: UIView {
+class DRCricleGradientView: UIView, CAAnimationDelegate {
   
-  private var backgroundLayer:CAShapeLayer!
-  private var gradientLayer1:CAGradientLayer!
-  private var gradientLayer2:CAGradientLayer!
-  private var colors:NSMutableArray!
+  fileprivate var backgroundLayer:CAShapeLayer!
+  fileprivate var gradientLayer1:CAGradientLayer!
+  fileprivate var gradientLayer2:CAGradientLayer!
+  fileprivate var colors:NSMutableArray!
   
   // 圆环宽度
   var width:CGFloat {
@@ -39,7 +39,7 @@ class DRCricleGradientView: UIView {
       }
       let color:UIColor
       color = UIColor(hue: 1.0 * CGFloat(hue) / 360.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
-      colors.addObject(color.CGColor)
+      colors.add(color.cgColor)
       hue += 5
     }
     
@@ -54,28 +54,28 @@ class DRCricleGradientView: UIView {
 
   func circleShape() -> CALayer {
     // 画圆
-    let arcCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    let arcCenter = CGPoint(x: self.bounds.midX, y: self.bounds.midY);
     let radius:CGFloat = self.bounds.width / 2.0 - 5
     let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: CGFloat(M_PI), endAngle: CGFloat(-M_PI), clockwise: false)
     
-    backgroundLayer.path = circlePath.CGPath;
-    backgroundLayer.strokeColor = UIColor.lightGrayColor().CGColor
-    backgroundLayer.fillColor = UIColor.clearColor().CGColor
+    backgroundLayer.path = circlePath.cgPath;
+    backgroundLayer.strokeColor = UIColor.lightGray.cgColor
+    backgroundLayer.fillColor = UIColor.clear.cgColor
     backgroundLayer.lineWidth = width
     
     // 方形光谱
     let gradientLayer = CALayer()
-    gradientLayer1.frame = CGRectMake(0, CGRectGetMidY(self.bounds) - radius - 5, self.bounds.width/2, self.bounds.width);
+    gradientLayer1.frame = CGRect(x: 0, y: self.bounds.midY - radius - 5, width: self.bounds.width/2, height: self.bounds.width);
     gradientLayer1.colors = colors as [AnyObject]
     //gradientLayer1.locations = [0.5,0.9,1]
-    gradientLayer1.startPoint = CGPointMake(0.5, 1.0)
-    gradientLayer1.endPoint = CGPointMake(0.5, 0.0)
+    gradientLayer1.startPoint = CGPoint(x: 0.5, y: 1.0)
+    gradientLayer1.endPoint = CGPoint(x: 0.5, y: 0.0)
     gradientLayer.addSublayer(gradientLayer1)
     //gradientLayer2.locations = [0.1,0.5,1]
-    gradientLayer2.frame = CGRectMake(self.bounds.width/2, CGRectGetMidY(self.bounds) - radius - 5, self.bounds.width/2, self.bounds.width);
+    gradientLayer2.frame = CGRect(x: self.bounds.width/2, y: self.bounds.midY - radius - 5, width: self.bounds.width/2, height: self.bounds.width);
     gradientLayer2.colors = colors as [AnyObject]
-    gradientLayer2.startPoint = CGPointMake(0.5, 0.0)
-    gradientLayer2.endPoint = CGPointMake(0.5, 1.0)
+    gradientLayer2.startPoint = CGPoint(x: 0.5, y: 0.0)
+    gradientLayer2.endPoint = CGPoint(x: 0.5, y: 1.0)
     gradientLayer.addSublayer(gradientLayer2)
     
     // 截取渐变层
@@ -87,7 +87,7 @@ class DRCricleGradientView: UIView {
     colorArray.removeLastObject()
     
     
-    colorArray.insertObject(lastColor, atIndex: 0)
+    colorArray.insert(lastColor, at: 0)
     
     let shiftedColors = NSArray(array: colorArray)
     gradientLayer1.colors = shiftedColors as [AnyObject]
@@ -97,7 +97,7 @@ class DRCricleGradientView: UIView {
     animation.duration = 0.02
     animation.fillMode = kCAFillModeForwards
     animation.delegate = self
-    gradientLayer1.addAnimation(animation, forKey: "gavin_animateGradient")
+    gradientLayer1.add(animation, forKey: "gavin_animateGradient")
     
 //    let animation1 = CABasicAnimation(keyPath: "gavin_colors_1")
 //    animation1.toValue = shiftedColors
@@ -115,12 +115,12 @@ class DRCricleGradientView: UIView {
 var i:CGFloat = 0.0
 extension DRCricleGradientView {
   
-  override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     // 颜色调整
     let colorArray = NSMutableArray(array: gradientLayer1.colors!)
     let lastColor = colorArray.lastObject!
     colorArray.removeLastObject()
-    colorArray.insertObject(lastColor, atIndex: 0)
+    colorArray.insert(lastColor, at: 0)
     let shiftedColors = NSArray(array: colorArray)
     
     gradientLayer1.colors = shiftedColors as [AnyObject]
@@ -132,7 +132,7 @@ extension DRCricleGradientView {
     animation.duration = 0.02
     animation.fillMode = kCAFillModeForwards
     animation.delegate = self
-    gradientLayer1.addAnimation(animation, forKey: "gavin_animateGradient")
+    gradientLayer1.add(animation, forKey: "gavin_animateGradient")
     
     
 //    let animation1 = CABasicAnimation(keyPath: "gavin_colors_1")

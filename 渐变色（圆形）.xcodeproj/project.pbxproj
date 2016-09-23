@@ -99,6 +99,8 @@
 				TargetAttributes = {
 					F28A776F1D8795E000C2D974 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = X342LX7QRW;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -255,10 +257,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X342LX7QRW;
 				INFOPLIST_FILE = "渐变色（圆形）/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zxq.-------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -266,10 +270,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X342LX7QRW;
 				INFOPLIST_FILE = "渐变色（圆形）/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zxq.-------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -292,6 +298,7 @@
 				F28A77841D8795E000C2D974 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

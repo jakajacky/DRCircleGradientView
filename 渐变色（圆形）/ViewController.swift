@@ -13,7 +13,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let cricle = DRCricleGradientView(frame: CGRectMake((self.view.bounds.width - 100) / 2.0, (self.view.bounds.height - 100) / 2.0, 100, 100))
+    let cricle = DRCricleGradientView(frame: CGRect(x: (self.view.bounds.width - 100) / 2.0, y: (self.view.bounds.height - 100) / 2.0, width: 100, height: 100))
     cricle.width = 2
     self.view.addSubview(cricle)
     
